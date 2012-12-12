@@ -7,9 +7,10 @@
      by (<%= p.student.email%>)
 
 	
-      <%= link_to "Read more...",project_path(p.id) %>
+      <%= link_to "Read more...",project_path(p.id) %>|
   
      <% if student_signed_in? %>
+     <%= link_to "Edit",edit_project_path(p.id) %>|
 	     <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
       <% end %>
 
