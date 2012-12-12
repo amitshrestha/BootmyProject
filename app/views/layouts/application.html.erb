@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BootMyProject</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div>
+    <% if student_signed_in? %>
+    Logged in as <strong><%= current_student.email %></strong>
+    <%= link_to "Logout", destroy_student_session_path, method: :delete, :confirm => "Are you sure you want to logout?" %>
+    <% else %>
+     <%= link_to "Sign up", new_student_registration_path %> |
+      <%= link_to "Login", new_student_session_path %>
+    <% end %>
+
+  </div>
+  <%= yield %>
+
+</body>
+</html>

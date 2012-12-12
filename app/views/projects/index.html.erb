@@ -1,0 +1,19 @@
+<h1>BootMyProject</h1>
+	<h3><%= link_to "add project", new_project_path %></h3>
+
+<% @projects.each do |p|%>
+	<ul>
+	   <li>Title: <%= p.title %></li> Abstract: <%= p.abstract %></br>
+     by (<%= p.student.email%>)
+
+	
+      <%= link_to "Read more...",project_path(p.id) %>
+  
+     <% if student_signed_in? %>
+	     <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
+      <% end %>
+
+	
+	</ul>
+
+<% end %>
