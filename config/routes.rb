@@ -1,4 +1,6 @@
 BootMyProject::Application.routes.draw do
+  
+
   devise_for :students
 
 
@@ -48,7 +50,9 @@ BootMyProject::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :projects
+   resources :donations
+  resources :projects do
+  end 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'projects#index'

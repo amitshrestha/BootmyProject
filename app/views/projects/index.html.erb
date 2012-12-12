@@ -4,7 +4,7 @@
 <% @projects.each do |p|%>
 	<ul>
 	   <li>Title: <%= p.title %></li> Abstract: <%= p.abstract %></br>
-     by (<%= p.student.email%>)
+     by ( <%= p.student.email %> )
 
 	
       <%= link_to "Read more...",project_path(p.id) %>|
