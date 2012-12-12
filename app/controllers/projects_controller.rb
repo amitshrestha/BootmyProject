@@ -45,6 +45,7 @@ class ProjectsController < ApplicationController
   end
 
   def donate
+        @project = Project.find(params[:id])
 
   end
 end

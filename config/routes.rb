@@ -1,8 +1,8 @@
 BootMyProject::Application.routes.draw do
-  
+ get 'projects/donate'
 
   devise_for :students
-
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
