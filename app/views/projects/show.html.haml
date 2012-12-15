@@ -5,8 +5,9 @@
 %br/
 %p
   Fund Pledged#{@project.pledge_amount}
+  received#{@received}
 
-= link_to "Donate", donations_path 
+= link_to "Donate", new_project_donation_path(@project.id) 
 
 
 

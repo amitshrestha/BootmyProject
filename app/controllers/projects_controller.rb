@@ -2,12 +2,13 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_student!, :except =>[:show,:index]
 
   def index
+    
     if current_student
       student_id = current_student.id
-      @projects = Project.where(:student_id => student_id)
-    else
-      @projects = Project.includes(:student).all
-    end
+    end 
+    
+    @projects = Project.includes(:student).all
+  
   end
 
   def new
@@ -23,6 +24,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @donation = Donation.all
+    @donor = Donation.donors(@project.id)
+    @received = @donor.received
   end
 
   def destroy

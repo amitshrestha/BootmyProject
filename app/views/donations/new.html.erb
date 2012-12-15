@@ -1,2 +1,5 @@
-<h1>Donations#new</h1>
-<p>Find me in app/views/donations/new.html.erb</p>
+<h1>Enter donation amount</h1>
+<%= simple_form_for [@project,@donation] do |f| %>
+<%= f.input :amount, :label => "Enter the amount" %>
+<%= f.submit "Donate" %>
+<% end %>
