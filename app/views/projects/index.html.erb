@@ -1,26 +1,27 @@
 <%= render 'header' %>
-<div class="maincontent" >
-<%= paginate @projects %>
-	<h3><%= link_to "add project", new_project_path %></h3>
-
+<section >
+  <%= paginate @projects %>
+  <h3><%= link_to "add project", new_project_path %></h3>
 	<% @projects.each do |p|%>
-	<div id = "project_block" >
-    <% if p.photo.exists? then %>
-      <%= image_tag p.photo.url(:small) %>
-    <% end %>
+	  <div id = "project_block" >
+        <% if p.photo.exists? then %>
+        <%= image_tag p.photo.url(:small) %></br>
+        <% end %>
 
-	  Title: <%= p.title %>
-    Abstract: <%= p.abstract %></br>
-    	 by ( <%= p.student.email %> )
-	  <%= link_to "Read more...",project_path(p.id) %>|  
-     <div id = "donate_button">
-    <%= link_to "Donate",@donations_path %>
-       </div>
-    	 <% if student_signed_in? %>
-     <%= link_to "Edit",edit_project_path(p.id) %>|
-	     <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
+	     Title: <%= p.title %></br>
+        Abstract: <%= p.abstract %></br>
+    	  by ( <%= p.student.email %> )</br>
+	      <%= link_to "Read more...",project_path(p.id) %>|  
+        
+    	 
+      <% if student_signed_in? %>
+        <%= link_to "Edit",edit_project_path(p.id) %>|
+	       <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
       <% end %>
-</div>
-<% end %>
-</div>
+      <div id = "donate_button">
+          <%= button_to "Donate",@donations_path %>
+        </div>
+    </div>
+  <% end %>
+</section>
 
