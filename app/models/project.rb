@@ -4,8 +4,12 @@ class Project < ActiveRecord::Base
   validates :title, :presence => true, :length =>{:maximum => 30}
   validates :description, :presence => true
   validates :pledge_amount, :presence => true
-  validates :abstract, :presence => true, :length => {:maximum => 40 }
-  validates :photo, :attachment_presence => true
+  #validates :photo, :attachment_presence => true
+  #validates_with AttachmentPresenceValidator, :attributes => :photo
+  validates_attachment_presence :photo
+
+validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
  
   
   has_many :donations

@@ -5,8 +5,10 @@
 	<% @projects.each do |p|%>
 	  <div id = "project_block" >
         <% if p.photo.exists? then %>
-        <%= image_tag p.photo.url(:small) %></br>
+        <div id = "photo" >
+        <%= image_tag p.photo.url(:thumb) %></br>
         <% end %>
+      </div>
 
 	     Title: <%= p.title %></br>
         Abstract: <%= p.abstract %></br>
@@ -15,13 +17,12 @@
         
     	 
       <% if student_signed_in? %>
+        <% if current_student.id == p.student.id %>
         <%= link_to "Edit",edit_project_path(p.id) %>|
 	       <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
+        <% end %>
       <% end %>
-      <div id = "donate_button">
-          <%= button_to "Donate",@donations_path %>
-        </div>
-    </div>
+      </div>
   <% end %>
 </section>
 

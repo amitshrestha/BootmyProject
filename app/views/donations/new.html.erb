@@ -1,5 +1,6 @@
 <h1>Enter donation amount</h1>
 <%= simple_form_for [@project,@donation] do |f| %>
 <%= f.input :amount, :label => "Enter the amount" %>
+<%= f.input :credit_card_no, :label => "Enter your credit card no."%>
 <%= f.submit "Donate" %>
 <% end %>

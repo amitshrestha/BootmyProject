@@ -1,9 +1,12 @@
 class Notifier < ActionMailer::Base
-  default from: "rojesh.shrestha@sproutify.com"
+  default from: "amitshrestha1431@gmail.com"
   
-  def welcome(recipient)
-    @account = recipient
-    mail(:to => recipient.email_address_with_name)    
+  def welcome(donor)
+    @donor = donor
+    mail( :to => donor.student.email,
+          :subject => "Donation",
+          :body => "Thank you! You have donated #{donor.amount}"
+        )    
   end
   
 end

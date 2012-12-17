@@ -41,4 +41,44 @@ section{
 	margin-top: 180px;
 	margin-left: 70px;
 }
+.image{
+	width: 40px;
+	heigth: 40px;
+	
+}
+#photo{
+
+	width: 100px;
+	height: 100px;
+	margin-left: 50px;
+	margin-top: 10px;
+}
+#menubar{
+		width: 1024px;
+		height: 50px;
+		margin: auto;
+		background-color: #fafaf6;
+		border-radius: 10px;
+		box-shadow: 2px 5px 2px black;
+}
+#menubar ul{
+		list-style: none;
+}
+#menubar ul li{
+		float: left;
+		padding: 7px;
+		display: block;
+		color: brown;
+}
+#menubar ul li a{
+	padding: 5px 15px;
+	color:red;
+	border-radius:5px;
+}
+#menubar ul li a:hover{
+		transform: scale(1.5);
+		color: white;
+		background-color: black;
+
+}
 

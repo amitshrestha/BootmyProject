@@ -1,5 +1,5 @@
 class Donation < ActiveRecord::Base
-  attr_accessible :amount
+  attr_accessible :amount, :credit_card_no
   belongs_to :student
   belongs_to :project
 

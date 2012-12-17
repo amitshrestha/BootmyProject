@@ -19,9 +19,9 @@ class ProjectsController < ApplicationController
     @project = Project.create(params[:project])
     @project.student_id = current_student.id
     if @project.save
-    redirect_to projects_path
-  else 
-    render 'new'
+       redirect_to projects_path
+    else 
+        render 'new'
   end
   end
 

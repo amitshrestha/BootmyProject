@@ -17,11 +17,15 @@ class DonationsController < ApplicationController
     @donation = Donation.new(params[:donation])
     @donation.student_id = current_student.id
     @donation.project_id = @project.id
-    @donation.save!
+    if @donation.save
+      Notifier.welcome(@donation).deliver!
+    end
     redirect_to project_donation_path(@project.id,@donation.id)
   end
 
   def show
+    @project = Project.find(params[:project_id])
     @donation = Donation.find(params[:id])
   end
 end
+ 

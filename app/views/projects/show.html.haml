@@ -1,14 +1,16 @@
 = render 'header'
-.maincontent
-  =image_tag @project.photo.url(:small)
+%section
+  #photo
+    =image_tag @project.photo.url(:thumb) 
   %h1
     Title: #{@project.title}
   %br/
   %p= @project.description
   %br/
   %p
-    Fund Pledged#{@project.pledge_amount}
-    received#{@received}
+    Fund Pledged: $ #{@project.pledge_amount}
+    %br/
+    received: $ #{@received}
 
   = link_to "Donate", new_project_donation_path(@project.id) 
 
