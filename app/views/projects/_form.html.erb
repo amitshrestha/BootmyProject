@@ -1,9 +1,10 @@
-<%= simple_form_for @project do |f| %>
+<%= simple_form_for @project, :html => { :multipart => true } do |f| %>
 <div id = "form">
 <%= f.input :title, :label => "Title" %>
 <%= f.input :abstract, :label => "State your project in one line ",:input_html => {:size => '50x5'} %>
 <%= f.input :description, :label => "Description", :input_html => {:size => '50x10'}%>
 <%= f.input :pledge_amount, :label => "Enter Your Pledged Amount" %>
-<%= f.submit "Submit Project" %>
+<%= f.file_field :photo %>
+<%= f.submit "Submit Project"%>
 
 <% end %>

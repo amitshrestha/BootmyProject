@@ -4,3 +4,40 @@
 label{
 	display: block;
 }
+header {
+	
+	color: #678;
+	width: 1024px;
+	height: 100px;
+	margin: auto;
+}
+header h1{
+	color: white;
+	text-shadow: 2px 5px 2px black;
+
+}
+body{
+	
+	background-color: #456;
+}
+.maincontent{
+	background-color: #fafafa;
+	width: 1024px;
+	minimum-height: 500px;
+	margin: auto;
+}
+
+#project_block{
+	width: 250px;
+	height: 400px;
+	background-color: #EEE;
+	border: 1px solid black;
+	border-radius: 10px;
+	float: left;
+	margin-left: 4px;
+	box-shadow: 2px 3px 1px black;
+}
+#donate_button{
+	margin-top: 300px;
+	margin-left: 70px;
+}

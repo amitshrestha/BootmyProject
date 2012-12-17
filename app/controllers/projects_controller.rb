@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
       student_id = current_student.id
     end 
     
-    @projects = Project.includes(:student).all
+    @projects = Project.includes(:student).page(params[:page]).per(3)
   
   end
 

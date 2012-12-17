@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212100424) do
+ActiveRecord::Schema.define(:version => 20121217002326) do
 
   create_table "donations", :force => true do |t|
     t.float    "amount"
@@ -26,9 +26,12 @@ ActiveRecord::Schema.define(:version => 20121212100424) do
     t.text     "description"
     t.float    "pledge_amount"
     t.text     "abstract"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "student_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "students", :force => true do |t|

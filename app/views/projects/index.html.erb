@@ -1,20 +1,23 @@
-<h1>BootMyProject</h1>
+<%= render 'header' %>
+<div class="maincontent" >
+<%= paginate @projects %>
 	<h3><%= link_to "add project", new_project_path %></h3>
 
-<% @projects.each do |p|%>
-	<ul>
-	   <li>Title: <%= p.title %></li> Abstract: <%= p.abstract %></br>
-     by ( <%= p.student.email %> )
-
-	
-      <%= link_to "Read more...",project_path(p.id) %>|
-  
-     <% if student_signed_in? %>
+	<% @projects.each do |p|%>
+	<div id = "project_block" >
+      <%= image_tag p.photo.url(:small) %>
+	  Title: <%= p.title %>
+    Abstract: <%= p.abstract %></br>
+    	 by ( <%= p.student.email %> )
+	  <%= link_to "Read more...",project_path(p.id) %>|  
+     <div id = "donate_button">
+    <%= link_to "Donate",@donations_path %>
+       </div>
+    	 <% if student_signed_in? %>
      <%= link_to "Edit",edit_project_path(p.id) %>|
 	     <%= link_to "Delete", project_path(p.id), :method => :delete, :confirm => "Are you Sure?" %>
       <% end %>
-
-	
-	</ul>
-
+</div>
 <% end %>
+</div>
+

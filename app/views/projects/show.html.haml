@@ -1,13 +1,16 @@
-%h1
-  Title: #{@project.title}
-%br/
-%p= @project.description
-%br/
-%p
-  Fund Pledged#{@project.pledge_amount}
-  received#{@received}
+= render 'header'
+.maincontent
+  =image_tag @project.photo.url(:small)
+  %h1
+    Title: #{@project.title}
+  %br/
+  %p= @project.description
+  %br/
+  %p
+    Fund Pledged#{@project.pledge_amount}
+    received#{@received}
 
-= link_to "Donate", new_project_donation_path(@project.id) 
+  = link_to "Donate", new_project_donation_path(@project.id) 
 
 
 

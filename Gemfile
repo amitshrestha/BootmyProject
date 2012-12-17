@@ -12,6 +12,7 @@ gem 'binding_of_caller'
 gem 'kaminari'
 gem 'simple_form'
 gem 'haml'
+gem 'paperclip'
 
 
 # Gems used only for assets and not required
