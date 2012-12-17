@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   validates :description, :presence => true
   validates :pledge_amount, :presence => true
   validates :abstract, :presence => true, :length => {:maximum => 40 }
+  validates :photo, :attachment_presence => true
+ 
   
   has_many :donations
   has_many :students, :through => :donations  

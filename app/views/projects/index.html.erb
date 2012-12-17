@@ -5,7 +5,10 @@
 
 	<% @projects.each do |p|%>
 	<div id = "project_block" >
+    <% if p.photo.exists? then %>
       <%= image_tag p.photo.url(:small) %>
+    <% end %>
+
 	  Title: <%= p.title %>
     Abstract: <%= p.abstract %></br>
     	 by ( <%= p.student.email %> )

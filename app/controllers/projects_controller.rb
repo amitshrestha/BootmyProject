@@ -18,8 +18,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(params[:project])
     @project.student_id = current_student.id
-    @project.save!
+    if @project.save
     redirect_to projects_path
+  else 
+    render 'new'
+  end
   end
 
   def show
