@@ -1,7 +1,7 @@
 <%= render 'header' %>
-<section >
+<section>
   <%= paginate @projects %>
-  <h3><%= link_to "add project", new_project_path %></h3>
+  <h3><%= link_to "add project", new_project_path, :class => "fancybox" %></h3>
 	<% @projects.each do |p|%>
 	  <div id = "project_block" >
         <% if p.photo.exists? then %>
@@ -13,9 +13,9 @@
 	     Title: <%= p.title %></br>
         Abstract: <%= p.abstract %></br>
     	  by ( <%= p.student.email %> )</br>
-	      <%= link_to "Read more...",project_path(p.id) %>|  
-        
-    	 
+	      <%= link_to "Read more...",project_path(p.id) %>|
+
+
       <% if student_signed_in? %>
         <% if current_student.id == p.student.id %>
         <%= link_to "Edit",edit_project_path(p.id) %>|

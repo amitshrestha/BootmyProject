@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {
+    $("a.fancybox").fancybox({
+      'transitionIn'    :    'elastic',
+      'transitionOut'    :    'elastic',
+      'speedIn'        :    400,
+      'speedOut'        :    200,
+      'overlayShow'    :    false
+    });
+  });

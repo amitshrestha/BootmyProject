@@ -1,28 +1,32 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_student!, :except =>[:show,:index]
-
   def index
-    
+
     if current_student
       student_id = current_student.id
-    end 
-    
+    end
+
     @projects = Project.includes(:student).page(params[:page]).per(4)
-  
+
   end
 
   def new
     @project = Project.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @project = Project.create(params[:project])
     @project.student_id = current_student.id
+
     if @project.save
        redirect_to projects_path
-    else 
-        render 'new'
-  end
+    else
+      render 'new'
+    end
   end
 
   def show
